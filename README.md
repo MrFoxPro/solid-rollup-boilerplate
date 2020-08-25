@@ -2,21 +2,20 @@
 
 ## Ingredients
 
-- Solid JS
-- Rollup
-- Babel + Typescript + ESLint + Prettier
-- Jest
-- Routing via solid-typefu-router5
-- PWA Powered
-- SCSS modules via postcss
-- SCSS assets resolution
-- Inline svg
-- Native ES Modules with `modulepreload`
-- CSS Modules assistance via typescript-plugin-css-modules
+🏎 Solid JS  
+🍣 Rollup  
+🧼 Babel + Typescript + ESLint + Prettier  
+📑 Jest  
+🔃 Routing via solid-typefu-router5  
+📴 PWA Powered  
+🖍 SCSS modules + assets resolution  
+🔠 Inline svg  
+🛰 Native ES Modules with `modulepreload`  
+👨‍💻 CSS Modules assistance via typescript-plugin-css-modules
 
 ## Usage
-
-run `npm start` and open `http://localhost:3000`
+`git clone https://github.com/MrFoxPro/solid-rollup-boilerplate.git && npm i`  
+run `npm start` and open `http://localhost:3000`  
 After every change you need manually reload page to see changes. You could enable livereloading with `https://www.npmjs.com/package/rollup-plugin-livereload`, but it could significaly slow down build speed
 
 run `npm run build` to create optimized build
