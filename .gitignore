@@ -1,0 +1,7 @@
+.DS_Store
+.cache
+node_modules
+coverage
+dist
+stats.html
+.vscode

@@ -1,0 +1,29 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:testing-library/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "rules": {},
+  "settings": {
+    "import/internal-regex": "^$public/"
+  },
+  "env": {
+    "es2020": true,
+    "browser": true,
+    "jest": true
+  }
+}
