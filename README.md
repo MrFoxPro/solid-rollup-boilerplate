@@ -27,6 +27,11 @@ This boilerplate temporary uses fork of rollup-plugin-html2. Check [this PR](htt
 
 `Thanks to @high1 for inspiring & creating jest setup`
 
+## Useful articles
+
+[Using Native ES Modules](https://philipwalton.com/articles/using-native-javascript-modules-in-production-today)
+[Preloading modules](https://developers.google.com/web/updates/2017/12/modulepreload)
+
 ## TODO
 
 - Split configuration for modern and legacy browsers.  
