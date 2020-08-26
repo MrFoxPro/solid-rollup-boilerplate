@@ -40,7 +40,8 @@ In other words, a Rollup bundle consisting of 20 module chunks will load faster 
 
 This boilerplate temporary uses fork of rollup-plugin-html2. Check [this PR](https://github.com/mentaljam/rollup-plugin-html2/pull/7)
 
-`Thanks to @high1 for inspiring & creating jest setup`
+Thanks to [@high1](https://github.com/high1) for jest configuration  
+Thanks to [@philipwalton](https://github.com/philipwalton) for great articles about native modules and simple rollup setup
 
 ## Useful articles
 
