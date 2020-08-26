@@ -23,7 +23,6 @@ const production = process.env.NODE_ENV === 'production';
 /** @type {import('rollup').RollupOptions} */
 const config = {
   input: ['src/index.tsx', 'src/workers/serviceWorker.ts'],
-
   treeshake: production,
   preserveEntrySignatures: false,
   watch: {
@@ -33,6 +32,8 @@ const config = {
     sourcemap: !production ? 'inline' : false,
     dir: 'dist',
     format: 'es',
+    chunkFileNames: '[name].[hash].mjs',
+    entryFileNames: '[name].[hash].mjs',
     minifyInternalExports: production,
     // comment this for Microsoft Edge
     manualChunks: (id) => {
