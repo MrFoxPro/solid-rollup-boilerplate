@@ -93,7 +93,7 @@ const config = {
     replace({
       values: {
         'process.env.PUBLIC_URL': production
-          ? '"https://xn--80ac0abgzx.xn--p1ai/"'
+          ? '"YOUR_SITE_URL"'
           : '"localhost:3000"',
       },
     }),
