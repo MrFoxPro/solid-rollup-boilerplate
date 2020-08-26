@@ -6,25 +6,26 @@
 🍣 Rollup  
 🧼 Babel + Typescript + ESLint + Prettier  
 📑 Jest  
-🔃 Routing via solid-typefu-router5  
+🔃 Routing  
 📴 PWA Powered  
 🖍 SCSS modules + assets resolution  
-🔠 Inline svg  
+🔠 Inline SNG  
 🛰 Native ES Modules with `modulepreload`  
-👨‍💻 CSS Modules assistance via typescript-plugin-css-modules
+👨‍💻 CSS Modules assistance
 
 ## Usage
+
 `git clone https://github.com/MrFoxPro/solid-rollup-boilerplate.git && npm i`  
 run `npm start` and open `http://localhost:3000`  
-After every change you need manually reload page to see changes. You could enable livereloading with `https://www.npmjs.com/package/rollup-plugin-livereload`, but it could significaly slow down build speed
-
+After every change you need manually reload page to see changes. You could enable livereloading with `https://www.npmjs.com/package/rollup-plugin-livereload`, but it significaly slows down build speed  
+![alt](https://i.imgur.com/Dupj25y.png)  
 run `npm run build` to create optimized build
 
 ## HTML Plugin explanation
 
 This boilerplate temporary uses fork of rollup-plugin-html2. Check [this PR](https://github.com/mentaljam/rollup-plugin-html2/pull/7)
 
-## Thanks to @high1 for inspiring & creating jest setup
+`Thanks to @high1 for inspiring & creating jest setup`
 
 ## TODO
 
