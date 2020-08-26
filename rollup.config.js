@@ -15,6 +15,7 @@ import svg from 'rollup-plugin-inline-svg';
 import manifest from 'rollup-plugin-manifest-json';
 import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
+
 const extensions = ['ts', 'tsx', 'js', 'jsx'].map((x) => '.' + x);
 const preload = ['solid-js', 'router5', 'serviceWorker'];
 const production = process.env.NODE_ENV === 'production';
@@ -33,22 +34,23 @@ const config = {
     dir: 'dist',
     format: 'es',
     minifyInternalExports: production,
-    // manualChunks: (id) => {
-    //   const { ext, name: fileName } = path.parse(id);
-    //   if (!extensions.includes(ext)) return;
-    //   let name = fileName;
-    //   if (id.includes('node_modules')) {
-    //     const directories = id.split(path.sep);
-    //     name = directories[directories.lastIndexOf('node_modules') + 1];
-    //   }
-    //   const lib = preload.find((x) => name.includes(x));
-    //   if (lib) return lib;
-    //   // force keep deps in the default chunk.
-    //   if (name === 'loadash.throttle') {
-    //     return;
-    //   }
-    //   return;
-    // },
+    // comment this for Microsoft Edge
+    manualChunks: (id) => {
+      const { ext, name: fileName } = path.parse(id);
+      if (!extensions.includes(ext)) return;
+      let name = fileName;
+      if (id.includes('node_modules')) {
+        const directories = id.split(path.sep);
+        name = directories[directories.lastIndexOf('node_modules') + 1];
+      }
+      const lib = preload.find((x) => name.includes(x));
+      if (lib) return lib;
+      // force keep deps in the default chunk.
+      if (name === 'loadash.throttle') {
+        return;
+      }
+      return;
+    },
   },
   plugins: [
     nodeResolve({
@@ -58,23 +60,25 @@ const config = {
       extensions,
       babelHelpers: 'bundled',
       presets: [
-        [
-          '@babel/preset-env',
-          {
-            useBuiltIns: 'usage',
-            corejs: 3,
-            forceAllTransforms: true,
-            targets: { browsers: 'last 2 versions' },
-          },
-        ],
+        // use this for Microsoft Edge
+        // [
+        //   '@babel/preset-env',
+        //   {
+        //     useBuiltIns: 'usage',
+        //     corejs: 3,
+        //     forceAllTransforms: true,
+        //     targets: { browsers: 'last 2 versions' },
+        //   },
+        // ],
         'solid',
         '@babel/preset-typescript',
       ],
-      plugins: [
-        '@babel/plugin-syntax-dynamic-import',
-        '@babel/proposal-class-properties',
-        '@babel/plugin-proposal-object-rest-spread',
-      ],
+      // use this for Microsoft Edge
+      // plugins: [
+      //   '@babel/plugin-syntax-dynamic-import',
+      //   '@babel/proposal-class-properties',
+      //   '@babel/plugin-proposal-object-rest-spread',
+      // ],
       exclude: [
         /(node_modules\/)(?!(solid-js|router5|solid-typefu-router5))/,
         /node_modules\/core-js/,
