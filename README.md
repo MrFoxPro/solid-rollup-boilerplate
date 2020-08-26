@@ -2,14 +2,14 @@
 
 ## Ingredients
 
-🏎 Solid JS  
+🔷 Solid JS  
 🍣 Rollup  
 🧼 Babel + Typescript + ESLint + Prettier  
 📑 Jest  
 🔃 Routing  
 📴 PWA Powered  
 🖍 SCSS modules + assets resolution  
-🔠 Inline SVG  
+🔠 Inline SG  
 🛰 Native ES Modules with `modulepreload`  
 👨‍💻 CSS Modules assistance
 
