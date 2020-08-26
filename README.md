@@ -9,7 +9,7 @@
 🔃 Routing  
 📴 PWA Powered  
 🖍 SCSS modules + assets resolution  
-🔠 Inline SG  
+🔠 Inline SVG  
 🛰 Native ES Modules with `modulepreload`  
 👨‍💻 CSS Modules assistance
 
