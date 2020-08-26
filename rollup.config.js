@@ -80,10 +80,12 @@ const config = {
       //   '@babel/proposal-class-properties',
       //   '@babel/plugin-proposal-object-rest-spread',
       // ],
-      exclude: [
-        /(node_modules\/)(?!(solid-js|router5|solid-typefu-router5))/,
-        /node_modules\/core-js/,
-      ],
+      // use use this for Microsoft Edge
+      // exclude: [
+      //   /(node_modules\/)(?!(solid-js|router5|solid-typefu-router5))/,
+      //   /node_modules\/core-js/,
+      // ],
+      exclude: /node_modules\//,
     }),
     commonjs({
       extensions,
