@@ -12,7 +12,7 @@ import serve from 'rollup-plugin-serve';
 import url from '@rollup/plugin-url';
 import strip from '@rollup/plugin-strip';
 import cssUrl from 'postcss-url';
-import svg from 'rollup-plugin-inline-svg';
+import svgo from 'rollup-plugin-svgo';
 import manifest from 'rollup-plugin-manifest-json';
 import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
@@ -122,7 +122,7 @@ const config = {
       limit: 2048,
       exclude: /\.svg/,
     }),
-    svg(),
+    svgo(),
     !production &&
       serve({
         contentBase: './dist',
