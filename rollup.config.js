@@ -18,7 +18,6 @@ import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
 import livereload from 'rollup-plugin-livereload';
 import imagemin from 'rollup-plugin-imagemin';
-import cleaner from 'rollup-plugin-cleaner';
 import gzip from 'rollup-plugin-gzip';
 
 const extensions = ['ts', 'tsx', 'js', 'jsx'].map((x) => '.' + x);
@@ -59,9 +58,7 @@ const config = {
     },
   },
   plugins: [
-    cleaner({
-      targets: ['./dist/'],
-    }),
+    del({ runOnce: true, targets: 'distribution/*' }),
     nodeResolve({
       extensions,
     }),
