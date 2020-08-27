@@ -15,6 +15,7 @@ import svg from 'rollup-plugin-inline-svg';
 import manifest from 'rollup-plugin-manifest-json';
 import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
+import livereload from 'rollup-plugin-livereload';
 
 const extensions = ['ts', 'tsx', 'js', 'jsx'].map((x) => '.' + x);
 const preload = ['solid-js', 'router5', 'serviceWorker'];
@@ -92,9 +93,7 @@ const config = {
     }),
     replace({
       values: {
-        'process.env.PUBLIC_URL': production
-          ? '"YOUR_SITE_URL"'
-          : '"localhost:3000"',
+        'process.env.PUBLIC_URL': production ? '"YOUR_SITE_URL"' : '"localhost:3000"',
       },
     }),
     postcss({
@@ -123,6 +122,10 @@ const config = {
         contentBase: './dist',
         port: 3000,
         historyApiFallback: true,
+      }),
+    !production &&
+      livereload({
+        watch: 'dist',
       }),
     html2({
       template: './src/assets/index.html',

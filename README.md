@@ -17,7 +17,6 @@
 
 `git clone https://github.com/MrFoxPro/solid-rollup-boilerplate.git && npm i`  
 run `npm start` and open `http://localhost:3000`  
-After every change you need manually reload page to see changes. You could enable livereloading with `https://www.npmjs.com/package/rollup-plugin-livereload`, but it significaly slows down build speed  
 ![alt](https://i.imgur.com/Dupj25y.png)  
 run `npm run build` to create optimized build
 
@@ -58,4 +57,3 @@ Thanks to [@philipwalton](https://github.com/philipwalton) for great articles ab
 - Add build-time typechecking
 - Create true differential build for modern/legacy browsers
 - Add option to transpile Service Worker to CommonJS due to chromium bug
-- Find/Create more perfomant livereload plugin

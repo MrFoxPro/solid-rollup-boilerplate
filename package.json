@@ -3,7 +3,7 @@
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production rollup -c",
     "coverage": "jest --coverage",
-    "lint": "eslint --ext .ts,.tsx source/",
+    "lint": "eslint --ext .ts,.tsx src/",
     "open:coverage": "npm run coverage && open-cli ./coverage/lcov-report/index.html",
     "start": "npm run clean && rollup -c -w",
     "test": "jest",
@@ -67,6 +67,7 @@
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-html2": "file:misc/rollup-plugin-html2",
     "rollup-plugin-inline-svg": "^2.0.0",
+    "rollup-plugin-livereload": "^1.3.0",
     "rollup-plugin-manifest-json": "^1.1.1",
     "rollup-plugin-postcss": "^3.1.6",
     "rollup-plugin-serve": "^1.0.3",
@@ -84,27 +85,30 @@
         "babelConfig": true
       }
     },
+    "testMatch": [
+      "<rootDir>/tests/**/*.ts?(x)"
+    ],
     "roots": [
-      "source"
+      "./"
     ],
     "preset": "ts-jest",
     "moduleDirectories": [
       "node_modules",
-      "source"
+      "src"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$": "<rootDir>/tests/mocks/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/tests/mocks/styleMock.js"
     },
     "collectCoverageFrom": [
-      "source/**/*.{ts,tsx}"
+      "src/**/*.{ts,tsx}"
     ],
     "coveragePathIgnorePatterns": [
       "assets",
       ".css.d.ts"
     ],
     "setupFilesAfterEnv": [
-      "./jest.setup.ts"
+      "./config/jest.setup.ts"
     ]
   }
 }
