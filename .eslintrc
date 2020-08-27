@@ -1,13 +1,16 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
-    "plugin:import/typescript",
+    "prettier",
     "plugin:jest/recommended",
     "plugin:jest/style",
     "plugin:testing-library/recommended",
     "plugin:jest-dom/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "import"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -17,7 +20,23 @@
     },
     "project": "./tsconfig.json"
   },
-  "rules": {},
+  "rules": {
+    "prettier/prettier": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  },
   "settings": {
     "import/internal-regex": "^$public/"
   },
