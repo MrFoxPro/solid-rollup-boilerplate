@@ -1,9 +1,10 @@
+import path from 'path';
+
 import html2 from 'rollup-plugin-html2';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
-import path from 'path';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import visualizer from 'rollup-plugin-visualizer';
@@ -16,6 +17,7 @@ import manifest from 'rollup-plugin-manifest-json';
 import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
 import livereload from 'rollup-plugin-livereload';
+import imagemin from 'rollup-plugin-imagemin';
 
 const extensions = ['ts', 'tsx', 'js', 'jsx'].map((x) => '.' + x);
 const preload = ['solid-js', 'router5', 'serviceWorker'];
@@ -176,6 +178,7 @@ const config = {
           ecma: 2020,
         },
       }),
+    production && imagemin(),
     production &&
       visualizer({
         open: false,
