@@ -58,7 +58,7 @@ const config = {
     },
   },
   plugins: [
-    del({ runOnce: true, targets: 'distribution/*' }),
+    del({ runOnce: true, targets: 'dist/*' }),
     nodeResolve({
       extensions,
     }),
