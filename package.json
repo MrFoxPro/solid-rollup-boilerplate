@@ -1,13 +1,12 @@
 {
   "name": "solid-rollup-boilerplate",
   "scripts": {
-    "build": "npm run clean && cross-env NODE_ENV=production rollup -c",
+    "build": "cross-env NODE_ENV=production rollup -c",
     "coverage": "jest --coverage",
     "lint": "eslint --ext .ts,.tsx src/",
     "open:coverage": "npm run coverage && open-cli ./coverage/lcov-report/index.html",
-    "start": "npm run clean && rollup -c -w",
-    "test": "jest",
-    "clean": "rimraf distribution"
+    "start": "rollup -c -w",
+    "test": "jest"
   },
   "dependencies": {
     "chart.js": "^2.9.3",
@@ -62,8 +61,8 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "postcss-url": "^8.0.0",
     "prettier": "^2.1.0",
-    "rimraf": "^3.0.2",
     "rollup": "^2.26.5",
+    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-html2": "file:misc/rollup-plugin-html2",
     "rollup-plugin-imagemin": "^0.4.1",
