@@ -19,6 +19,8 @@ import replace from '@rollup/plugin-replace';
 import livereload from 'rollup-plugin-livereload';
 import imagemin from 'rollup-plugin-imagemin';
 import gzip from 'rollup-plugin-gzip';
+import cssnano from 'cssnano';
+import del from 'rollup-plugin-delete';
 
 const extensions = ['ts', 'tsx', 'js', 'jsx'].map((x) => '.' + x);
 const preload = ['solid-js', 'router5', 'serviceWorker'];
@@ -27,17 +29,18 @@ const production = process.env.NODE_ENV === 'production';
 /** @type {import('rollup').RollupOptions} */
 const config = {
   input: ['src/index.tsx', 'src/workers/serviceWorker.ts'],
-  treeshake: production,
-  preserveEntrySignatures: false,
   watch: {
     clearScreen: true,
+    exclude: ['node_modules', 'distribution'],
   },
+  preserveEntrySignatures: false,
+  treeshake: production,
   output: {
     sourcemap: !production ? 'inline' : false,
     dir: 'dist',
     format: 'es',
     chunkFileNames: '[name].[hash].mjs',
-    entryFileNames: '[name].[hash].mjs',
+    entryFileNames: '[name].mjs',
     minifyInternalExports: production,
     // comment this for Microsoft Edge
     manualChunks: (id) => {
@@ -58,7 +61,6 @@ const config = {
     },
   },
   plugins: [
-    del({ runOnce: true, targets: 'dist/*' }),
     nodeResolve({
       extensions,
     }),
@@ -114,11 +116,14 @@ const config = {
           useHash: true,
           basePath: '.',
         }),
+        production && cssnano(),
       ],
     }),
     url({
       limit: 2048,
+      include: /\.(png|jpg|jpeg|webp|svg)/,
       exclude: /\.svg/,
+      publicPath: '/',
     }),
     svgo(),
     !production &&
@@ -129,15 +134,16 @@ const config = {
       }),
     !production &&
       livereload({
-        watch: 'dist',
+        watch: './dist',
       }),
     html2({
       template: './src/assets/index.html',
       modules: true,
+      injectCssType: 'style',
       preload: preload.map((name) => ({
         rel: 'modulepreload',
         type: 'script',
-        name,
+        name: './' + name,
       })),
       exclude: ['serviceWorker'],
       minify: {
@@ -169,7 +175,10 @@ const config = {
         },
       ],
     }),
-    production && strip(),
+    production &&
+      strip({
+        include: /\.(js|mjs|ts|tsx|jsx)/,
+      }),
     production &&
       terser({
         toplevel: true,
@@ -181,12 +190,16 @@ const config = {
         },
       }),
     production && imagemin(),
-    production && gzip(),
+    production &&
+      gzip({
+        filter: /\.(js|mjs|json|css|html|xml)$/,
+      }),
     production &&
       visualizer({
         open: false,
         bundlesRelative: true,
       }),
+    del({ runOnce: true, targets: 'dist/*' }),
   ],
 };
 export default config;

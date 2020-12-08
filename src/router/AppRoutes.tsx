@@ -10,7 +10,7 @@ export default function AppRoutes() {
   createEffect(() => {
     document.addEventListener('DOMContentLoaded', () => {
       if (!store.isAuthorized) {
-        router.router5.navigate('landing');
+        router.navigate('landing');
       }
     });
   });

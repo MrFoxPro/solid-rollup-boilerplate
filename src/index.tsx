@@ -1,4 +1,4 @@
-import { render, MountableElement } from 'solid-js/dom';
+import { render, MountableElement } from 'solid-js/web';
 
 import App from './views/App';
 navigator.serviceWorker.register('serviceWorker.js', {

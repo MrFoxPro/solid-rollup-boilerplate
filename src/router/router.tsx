@@ -12,7 +12,8 @@ const routes = [
   },
 ] as const;
 
-export const { Link, Router, Provider, router } = createSolidRouter(routes, {
+export const { Link, Router, Provider, router } = createSolidRouter({
+  routes,
   createRouter5: (routes) => {
     const router = createRouter(routes, {
       allowNotFound: true,

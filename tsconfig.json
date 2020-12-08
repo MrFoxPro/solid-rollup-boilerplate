@@ -13,6 +13,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
+    "jsxImportSource": "solid-js",
     "checkJs": false,
     "noEmit": true,
     "moduleResolution": "Node",

@@ -12,7 +12,7 @@ export default function Landing() {
       <button
         onClick={() => {
           authorize();
-          router.router5.navigate('workspace');
+          router.navigate('workspace');
         }}
       >
         Login

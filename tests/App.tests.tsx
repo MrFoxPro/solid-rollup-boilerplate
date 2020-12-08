@@ -1,4 +1,4 @@
-import { render, MountableElement } from 'solid-js/dom';
+import { render, MountableElement } from 'solid-js/web';
 import { queryByRole } from '@testing-library/dom';
 
 import App from '@/views/App';
